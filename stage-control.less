@@ -1,13 +1,44 @@
 @default-color: rgb(186, 186, 186);
 
+body {
+	font-family: "Open Sans", sans-serif;
+}
+
 .stage-wrapper {
-	display: flex;	
+	display: flex;
+	margin: 0 10px 10px 0;
 }
 
 .stage-item {
-	color: #fff;
-	font-size: 12px;
 	background-color: @default-color;
 	border-color: @default-color;
+	color: #fff;
 	flex-basis: 100%; 
+	font-size: 16px;
+	padding: 4px 0 4px 22px;
+	position: relative;
+	
+	
+	&:before,
+	&:after {
+		border: solid transparent;
+		content: " ";
+		left: 100%;				
+		position: absolute;
+		top: 50%;
+		z-index: 2
+	}
+	
+	&:after {
+		border-left-color: inherit;
+		border-width: 12px;
+		margin-top: -12px;
+	}
+
+	&:before {
+		border-color: rgba(255, 255, 255, 0);
+		border-left-color: #fff;
+		border-width: 14px;
+		margin-top: -14px;
+	}
 }
