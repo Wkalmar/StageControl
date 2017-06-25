@@ -1,4 +1,5 @@
 @default-color: rgb(186, 186, 186);
+@active-color: rgb(0, 102, 102);
 
 body {
 	font-family: "Open Sans", sans-serif;
@@ -9,6 +10,14 @@ body {
 	margin: 0 10px 10px 0;
 }
 
+.stage-wrapper:hover div:not(.stage-active) {
+		background-color: lighten(@active-color, 20%);
+		
+		&:after {
+			border-left-color: lighten(@active-color, 20%);
+		}
+	}
+
 .stage-item {
 	background-color: @default-color;
 	border-color: @default-color;
@@ -17,7 +26,6 @@ body {
 	font-size: 16px;
 	padding: 4px 0 4px 22px;
 	position: relative;
-	
 	
 	&:before,
 	&:after {
@@ -41,4 +49,20 @@ body {
 		border-width: 14px;
 		margin-top: -14px;
 	}
+	
+	&.stage-active {
+		background-color: @active-color;
+		
+		&:after {
+			border-left-color: @active-color;
+		}
+	}
+
+	&:hover ~ div:not(.stage-active) {
+		background-color: @default-color;
+		
+		&:after {
+			border-left-color: @default-color;
+		}
+	}	
 }
