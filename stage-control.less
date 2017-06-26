@@ -58,6 +58,22 @@ body {
 		}
 	}
 
+	&:hover {
+		background-color: lighten(@active-color, 20%);
+		
+		&:after {
+			border-left-color: lighten(@active-color, 20%);
+		}
+	}
+	
+	&:hover ~ div {
+		background-color: lighten(@active-color, 20%);
+		
+		&:after {
+			border-left-color: lighten(@active-color, 20%);
+		}
+	}
+	
 	&:hover ~ div:not(.stage-active) {
 		background-color: @default-color;
 		
